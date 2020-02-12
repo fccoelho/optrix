@@ -1,0 +1,60 @@
+
+optimize:
+    appDir: .
+    baseUrl: js/lib
+    dir: ../htdocs-build
+    skipDirOptimize: true
+    removeCombined: true
+    modules:
+         -
+            name: "optrix"
+    paths:
+        optrix: "../optrix"
+        data: ../data
+
+# Generate JSON fixtures
+collectjson:
+     # Mustache Templates
+     -
+        paths:
+             - ../templates
+        type: html
+        output: js/data/templates.js
+        json:
+            indent: 4
+        jsonp: define
+
+# Compile jQuery Mobile themes from SCSS
+scss:
+    indir: scss
+    outdir: css
+
+# Update version.txt & JS module
+setversion:
+    filename: ../version.txt
+    jsout: js/data/version.js 
+
+# Generate web icons
+icons:
+    source: icon-1024.png
+    
+    filename: icon-{size}.png
+    size: web
+
+# Generate Application Cache manifest
+appcache:
+    name: "optrix.appcache"
+    css: "css/optrix.css"
+    css-ignore: "css/lib/images/icons-png/.*"
+    cache:
+         - js/lib/require.js
+         - css/lib/images/marker-icon.png
+         - css/lib/images/marker-icon-2x.png
+         - css/lib/images/marker-shadow.png
+    network:
+         - "*"
+         - "http://*"
+         - "https://*"
+    fallback: []
+
+

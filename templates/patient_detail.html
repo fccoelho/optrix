@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        {{#page_config.can_change}}
+        <a href="{{rt}}/patients/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+        {{/page_config.can_change}}
+      </div>
+      <div role="main" class="ui-content">
+          <h1>{{label}}</h1>
+          <table>
+            <tr>
+              <th>Patient number</th>
+              <td>{{number}}</td>
+            </tr>
+            <tr>
+              <th>Patient key</th>
+              <td>{{crypto_key}}</td>
+            </tr>
+            <tr>
+              <th>Sex</th>
+              <td>{{sex}}</td>
+            </tr>
+            <tr>
+              <th>Age</th>
+              <td>{{age}}</td>
+            </tr>
+            <tr>
+              <th>Weight</th>
+              <td>{{weight}}</td>
+            </tr>
+            <tr>
+              <th>Disease code (ICD-10)</th>
+              <td>{{diagnosis}}</td>
+            </tr>
+            <tr>
+              <th>ASA grade</th>
+              <td>{{asa_grade}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

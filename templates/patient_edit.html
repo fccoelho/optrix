@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} patient</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} patient</h1>
+        {{#id}}
+        {{#page_config.can_delete}}
+        <form action="{{svc}}/patients/{{id}}" method="post" data-ajax="false"
+          data-wq-json="true" data-wq-background-sync="false"
+          onsubmit="return require('wq/app').confirmSubmit(this, 'Are you sure you want to delete this record?');">
+          {{>csrf}}
+          <input type=hidden name="_method" value="DELETE">
+          <button type="submit" data-icon="delete" class="ui-btn-right">
+            Delete
+          </button>
+        </form>
+        {{/page_config.can_delete}}
+        {{/id}}
+      </div>
+      <div role="main" class="ui-content">
+        <form action="{{svc}}/patients/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true"
+            {{#outbox_id}}
+              data-wq-outbox-id="{{outbox_id}}"
+              data-wq-outbox-preserve=""
+            {{/outbox_id}}>
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview" data-inset="true">
+            <li class="ui-field-contain">
+              <label for='patient-number'>Patient number</label>
+              <input id='patient-number' type='number' data-xform-type='int' name='number' required value="{{number}}">
+              <p class='error patient-number-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-crypto_key'>Patient key</label>
+              <input id='patient-crypto_key' type='text' data-xform-type='string' name='crypto_key' required value="{{crypto_key}}">
+              <p class='error patient-crypto_key-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-sex'>Sex</label>
+              <input id='patient-sex' type='text' data-xform-type='string' name='sex' required value="{{sex}}">
+              <p class='error patient-sex-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-age'>Age</label>
+              <input id='patient-age' type='number' data-xform-type='int' name='age' required value="{{age}}">
+              <p class='error patient-age-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-weight'>Weight</label>
+              <input id='patient-weight' type='number' data-xform-type='decimal' name='weight' required step='0.001' value="{{weight}}">
+              <p class='error patient-weight-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-diagnosis'>Disease code (ICD-10)</label>
+              <input id='patient-diagnosis' type='text' data-xform-type='string' name='diagnosis' required value="{{diagnosis}}">
+              <p class='error patient-diagnosis-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='patient-asa_grade'>ASA grade</label>
+              <input id='patient-asa_grade' type='number' data-xform-type='decimal' name='asa_grade' required step='0.001' value="{{asa_grade}}">
+              <p class='error patient-asa_grade-errors'></p>
+            </li>
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="{{rt}}/patients/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <p class="error patient-errors"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

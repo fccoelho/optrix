@@ -1,0 +1,217 @@
+{
+    ".git": {
+        "branches": {},
+        "hooks": {},
+        "info": {},
+        "logs": {
+            "refs": {
+                "heads": {},
+                "remotes": {
+                    "origin": {}
+                }
+            }
+        },
+        "objects": {
+            "00": {},
+            "01": {},
+            "02": {},
+            "04": {},
+            "12": {},
+            "14": {},
+            "17": {},
+            "19": {},
+            "1d": {},
+            "1f": {},
+            "2f": {},
+            "35": {},
+            "3a": {},
+            "3e": {},
+            "41": {},
+            "43": {},
+            "44": {},
+            "47": {},
+            "48": {},
+            "4d": {},
+            "52": {},
+            "56": {},
+            "5a": {},
+            "5b": {},
+            "5e": {},
+            "65": {},
+            "69": {},
+            "6f": {},
+            "72": {},
+            "77": {},
+            "79": {},
+            "7a": {},
+            "7e": {},
+            "7f": {},
+            "83": {},
+            "87": {},
+            "88": {},
+            "8a": {},
+            "8d": {},
+            "8e": {},
+            "97": {},
+            "9a": {},
+            "9b": {},
+            "9d": {},
+            "a2": {},
+            "ab": {},
+            "b4": {},
+            "b9": {},
+            "be": {},
+            "c0": {},
+            "c1": {},
+            "c2": {},
+            "c6": {},
+            "ca": {},
+            "dd": {},
+            "df": {},
+            "e2": {},
+            "e4": {},
+            "e6": {},
+            "ea": {},
+            "ef": {},
+            "f4": {},
+            "fc": {},
+            "info": {},
+            "pack": {}
+        },
+        "refs": {
+            "heads": {},
+            "remotes": {
+                "origin": {}
+            },
+            "tags": {}
+        }
+    },
+    ".idea": {
+        "inspectionProfiles": {}
+    },
+    "app": {
+        "manifest": {
+            "short_name": "optrix",
+            "name": "optrix Project",
+            "icons": [
+                {
+                    "src": "favicon.ico",
+                    "sizes": "64x64 32x32 24x24 16x16",
+                    "type": "image/x-icon"
+                },
+                {
+                    "src": "icon-192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "icon-512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                }
+            ],
+            "start_url": ".",
+            "display": "fullscreen",
+            "theme_color": "#000000",
+            "background_color": "#ffffff"
+        },
+        "css": {
+            "lib": {},
+            "optrix": {}
+        },
+        "js": {
+            "data": {},
+            "lib": {},
+            "optrix": {}
+        },
+        "scss": {
+            "lib": {
+                "compass": {},
+                "wq": {}
+            }
+        }
+    },
+    "conf": {},
+    "db": {
+        "optrix": {
+            "__pycache__": {},
+            "migrations": {
+                "__pycache__": {}
+            },
+            "settings": {
+                "__pycache__": {}
+            }
+        }
+    },
+    "htdocs": {
+        "manifest": {
+            "short_name": "optrix",
+            "name": "optrix Project",
+            "icons": [
+                {
+                    "src": "favicon.ico",
+                    "sizes": "64x64 32x32 24x24 16x16",
+                    "type": "image/x-icon"
+                },
+                {
+                    "src": "icon-192.png",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "icon-512.png",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                }
+            ],
+            "start_url": ".",
+            "display": "fullscreen",
+            "theme_color": "#000000",
+            "background_color": "#ffffff"
+        },
+        "css": {
+            "lib": {
+                "images": {
+                    "icons-png": {}
+                }
+            }
+        },
+        "js": {
+            "data": {},
+            "lib": {
+                "wq": {}
+            }
+        },
+        "scss": {
+            "lib": {
+                "compass": {
+                    "css3": {},
+                    "layout": {},
+                    "reset": {},
+                    "typography": {
+                        "links": {},
+                        "lists": {},
+                        "text": {}
+                    },
+                    "utilities": {
+                        "color": {},
+                        "general": {},
+                        "links": {},
+                        "lists": {},
+                        "sprites": {},
+                        "tables": {},
+                        "text": {}
+                    }
+                },
+                "wq": {}
+            }
+        }
+    },
+    "master_templates": {
+        "fields": {}
+    },
+    "media": {},
+    "templates": {
+        "partials": {}
+    }
+}

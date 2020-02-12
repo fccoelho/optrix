@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        {{#page_config.can_change}}
+        <a href="{{rt}}/surgerys/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+        {{/page_config.can_change}}
+      </div>
+      <div role="main" class="ui-content">
+          <h1>{{label}}</h1>
+          <table>
+            <tr>
+              <th>Surgery Type</th>
+              <td>{{surgery_type}}</td>
+            </tr>
+            <tr>
+              <th>Patient</th>
+              <td>{{patient_label}}</td>
+            </tr>
+            <tr>
+              <th>Patient entered the operating room</th>
+              <td>{{patient_in}}</td>
+            </tr>
+            <tr>
+              <th>Patient left the operating room</th>
+              <td>{{patient_out}}</td>
+            </tr>
+            <tr>
+              <th>Anesthetic Induction</th>
+              <td>{{anesthetic_induction}}</td>
+            </tr>
+            <tr>
+              <th>Robotic</th>
+              <td>{{robotic_label}}</td>
+            </tr>
+            <tr>
+              <th>Incision Time</th>
+              <td>{{incision_time}}</td>
+            </tr>
+            <tr>
+              <th>Suture Time</th>
+              <td>{{suture_time}}</td>
+            </tr>
+            <tr>
+              <th>Blood loss in ml</th>
+              <td>{{estimated_blood_loss}}</td>
+            </tr>
+            <tr>
+              <th>Transfusion</th>
+              <td>{{transfusion_label}}</td>
+            </tr>
+            <tr>
+              <th>Adverse events during surgery</th>
+              <td>{{adverse_events}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

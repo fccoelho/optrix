@@ -36,7 +36,7 @@ class Surgery(models.Model):
         return f"{self.surgery_type} on {self.date}"
 
     class Meta:
-        ordering = 'date'
+        ordering = ['date']
         verbose_name_plural = "Surgeries"
 
 

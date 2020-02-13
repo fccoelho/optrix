@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        {{#page_config.can_change}}
+        <a href="{{rt}}/Postoperativereports/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+        {{/page_config.can_change}}
+      </div>
+      <div role="main" class="ui-content">
+          <h1>{{label}}</h1>
+          <table>
+            <tr>
+              <th>Surgery</th>
+              <td>{{surgery_label}}</td>
+            </tr>
+            <tr>
+              <th>Robotic Or Cleaning</th>
+              <td>{{robotic_or_cleaning_label}}</td>
+            </tr>
+            <tr>
+              <th>Returned To Or</th>
+              <td>{{returned_to_or_label}}</td>
+            </tr>
+            <tr>
+              <th>Expected date of discharge</th>
+              <td>{{expected_discharge_date}}</td>
+            </tr>
+            <tr>
+              <th>Actual date of discharge</th>
+              <td>{{actual_discharge_date}}</td>
+            </tr>
+            <tr>
+              <th>Return To Hospital</th>
+              <td>{{return_to_hospital_label}}</td>
+            </tr>
+            <tr>
+              <th>Death 90</th>
+              <td>{{death_90_label}}</td>
+            </tr>
+            <tr>
+              <th>Complications description</th>
+              <td>{{complications}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

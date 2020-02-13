@@ -36,6 +36,11 @@
           {{/id}}
           <ul data-role="listview" data-inset="true">
             <li class="ui-field-contain">
+              <label for='patient-date'>Date of admission</label>
+              <input id='patient-date' type='date' data-xform-type='date' name='date' value="{{date}}">
+              <p class='error patient-date-errors'></p>
+            </li>
+            <li class="ui-field-contain">
               <label for='patient-number'>Patient number</label>
               <input id='patient-number' type='number' data-xform-type='int' name='number' required value="{{number}}">
               <p class='error patient-number-errors'></p>

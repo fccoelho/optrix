@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>surgery List{{#parent_id}} for {{parent_label}}{{/parent_id}}</title>
+    <title>financial List{{#parent_id}} for {{parent_label}}{{/parent_id}}</title>
     {{>head}}
   </head>
   <body>
     <div data-role="page" data-wq-sync-refresh="true">
       <div data-role="header">
         {{>home}}
-        <h1>surgery List{{#parent_id}} for {{parent_label}}{{/parent_id}}</h1>
+        <h1>financial List{{#parent_id}} for {{parent_label}}{{/parent_id}}</h1>
         {{#page_config.can_add}}
-        <a href="{{rt}}/Surgeries/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}" data-icon="plus">
+        <a href="{{rt}}/Financialreports/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}" data-icon="plus">
           Add New
         </a>
         {{/page_config.can_add}}
@@ -64,12 +64,12 @@
             {{/unsynced}}
             {{#list}}
             <li>
-              <a href="{{rt}}/Surgeries/{{id}}">{{label}}</a>
+              <a href="{{rt}}/Financialreports/{{id}}">{{label}}</a>
             </li>
             {{/list}}
             {{#page_config.can_add}}
             <li data-icon="plus" data-theme="b">
-              <a href="{{rt}}/Surgeries/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}">Add surgery</a>
+              <a href="{{rt}}/Financialreports/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}">Add financial</a>
             </li>
             {{/page_config.can_add}}
           </ul>

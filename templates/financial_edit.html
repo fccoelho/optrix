@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} financial</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} financial</h1>
+        {{#id}}
+        {{#page_config.can_delete}}
+        <form action="{{svc}}/Financialreports/{{id}}" method="post" data-ajax="false"
+          data-wq-json="true" data-wq-background-sync="false"
+          onsubmit="return require('wq/app').confirmSubmit(this, 'Are you sure you want to delete this record?');">
+          {{>csrf}}
+          <input type=hidden name="_method" value="DELETE">
+          <button type="submit" data-icon="delete" class="ui-btn-right">
+            Delete
+          </button>
+        </form>
+        {{/page_config.can_delete}}
+        {{/id}}
+      </div>
+      <div role="main" class="ui-content">
+        <form action="{{svc}}/Financialreports/{{id}}" method="post" data-ajax="false"
+            data-wq-json="true"
+            {{#outbox_id}}
+              data-wq-outbox-id="{{outbox_id}}"
+              data-wq-outbox-preserve=""
+            {{/outbox_id}}>
+          {{>csrf}}
+          {{#id}}
+          <input type=hidden name="_method" value="PUT">
+          {{/id}}
+          <ul data-role="listview" data-inset="true">
+            <li class="ui-field-contain">
+              <label for='financial-surgery_id'>Surgery</label>
+              <select id='financial-surgery_id' data-xform-type='string' name='surgery_id' required>
+                <option value="">Select one...</option>
+                {{#surgery_list}}
+                <option value="{{id}}"{{#selected}} selected{{/selected}}>
+                 {{#outbox}}*{{/outbox}} {{label}}
+                </option>
+                {{/surgery_list}}
+              </select>
+              <p class='error financial-surgery_id-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-materials_cost'>Cost of materials (consumables and instruments)</label>
+              <input id='financial-materials_cost' type='number' data-xform-type='decimal' name='materials_cost' required step='0.001' value="{{materials_cost}}">
+              <p class='error financial-materials_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-medication_cost'>Cost of medication</label>
+              <input id='financial-medication_cost' type='number' data-xform-type='decimal' name='medication_cost' required step='0.001' value="{{medication_cost}}">
+              <p class='error financial-medication_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-surgical_team'>Cost of surgical team</label>
+              <input id='financial-surgical_team' type='number' data-xform-type='decimal' name='surgical_team' required step='0.001' value="{{surgical_team}}">
+              <p class='error financial-surgical_team-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-other_costs'>Other personnel costs (nurses, etc.)</label>
+              <input id='financial-other_costs' type='number' data-xform-type='decimal' name='other_costs' required step='0.001' value="{{other_costs}}">
+              <p class='error financial-other_costs-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-or_time_cost'>Operating Room time cost</label>
+              <input id='financial-or_time_cost' type='number' data-xform-type='decimal' name='or_time_cost' required step='0.001' value="{{or_time_cost}}">
+              <p class='error financial-or_time_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-icu_cost'>ICU cost</label>
+              <input id='financial-icu_cost' type='number' data-xform-type='decimal' name='icu_cost' required step='0.001' value="{{icu_cost}}">
+              <p class='error financial-icu_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-robotic_cost'>Robotic system cost</label>
+              <input id='financial-robotic_cost' type='number' data-xform-type='decimal' name='robotic_cost' required step='0.001' value="{{robotic_cost}}">
+              <p class='error financial-robotic_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-robot_maint_cost'>Robot maintenance fee</label>
+              <input id='financial-robot_maint_cost' type='number' data-xform-type='decimal' name='robot_maint_cost' required step='0.001' value="{{robot_maint_cost}}">
+              <p class='error financial-robot_maint_cost-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='financial-sterilization_cost'>Sterilization Cost</label>
+              <input id='financial-sterilization_cost' type='number' data-xform-type='decimal' name='sterilization_cost' required step='0.001' value="{{sterilization_cost}}">
+              <p class='error financial-sterilization_cost-errors'></p>
+            </li>
+            <li>
+              <div class="ui-grid-a">
+                <div class="ui-block-a">
+                  <a href="{{rt}}/Financialreports/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                    Back
+                  </a>
+                </div>
+                <div class="ui-block-b">
+                  <button type="submit" data-icon="check" data-theme="b">
+                    Submit
+                  </button>
+                </div>
+              </div>
+              <p class="error financial-errors"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

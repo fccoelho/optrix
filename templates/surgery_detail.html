@@ -10,7 +10,7 @@
         {{>home}}
         <h1>{{label}}</h1>
         {{#page_config.can_change}}
-        <a href="{{rt}}/surgerys/{{id}}/edit" data-icon="edit" data-transition="flip">
+        <a href="{{rt}}/Surgeries/{{id}}/edit" data-icon="edit" data-transition="flip">
           Edit
         </a>
         {{/page_config.can_change}}
@@ -21,6 +21,10 @@
             <tr>
               <th>Surgery Type</th>
               <td>{{surgery_type}}</td>
+            </tr>
+            <tr>
+              <th>Date of Surgery</th>
+              <td>{{date}}</td>
             </tr>
             <tr>
               <th>Patient</th>
@@ -57,6 +61,14 @@
             <tr>
               <th>Transfusion</th>
               <td>{{transfusion_label}}</td>
+            </tr>
+            <tr>
+              <th>Conversion To Lap Open</th>
+              <td>{{conversion_to_lap_open_label}}</td>
+            </tr>
+            <tr>
+              <th>Instruments Used</th>
+              <td>{{instruments_used}}</td>
             </tr>
             <tr>
               <th>Adverse events during surgery</th>

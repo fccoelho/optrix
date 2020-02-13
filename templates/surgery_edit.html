@@ -11,7 +11,7 @@
         <h1>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} surgery</h1>
         {{#id}}
         {{#page_config.can_delete}}
-        <form action="{{svc}}/surgerys/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/Surgeries/{{id}}" method="post" data-ajax="false"
           data-wq-json="true" data-wq-background-sync="false"
           onsubmit="return require('wq/app').confirmSubmit(this, 'Are you sure you want to delete this record?');">
           {{>csrf}}
@@ -24,7 +24,7 @@
         {{/id}}
       </div>
       <div role="main" class="ui-content">
-        <form action="{{svc}}/surgerys/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/Surgeries/{{id}}" method="post" data-ajax="false"
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
@@ -39,6 +39,11 @@
               <label for='surgery-surgery_type'>Surgery Type</label>
               <input id='surgery-surgery_type' type='text' data-xform-type='string' name='surgery_type' required value="{{surgery_type}}">
               <p class='error surgery-surgery_type-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='surgery-date'>Date of Surgery</label>
+              <input id='surgery-date' type='date' data-xform-type='date' name='date' value="{{date}}">
+              <p class='error surgery-date-errors'></p>
             </li>
             <li class="ui-field-contain">
               <label for='surgery-patient_id'>Patient</label>
@@ -93,6 +98,16 @@
               <p class='error surgery-transfusion-errors'></p>
             </li>
             <li class="ui-field-contain">
+              <label for='surgery-conversion_to_lap_open'>Conversion To Lap Open</label>
+              <input id='surgery-conversion_to_lap_open' type='text' data-xform-type='select one' name='conversion_to_lap_open' value="{{conversion_to_lap_open}}">
+              <p class='error surgery-conversion_to_lap_open-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='surgery-instruments_used'>Instruments Used</label>
+              <textarea id='surgery-instruments_used' name='instruments_used' data-xform-type="text" required>{{instruments_used}}</textarea>
+              <p class='error surgery-instruments_used-errors'></p>
+            </li>
+            <li class="ui-field-contain">
               <label for='surgery-adverse_events'>Adverse events during surgery</label>
               <textarea id='surgery-adverse_events' name='adverse_events' data-xform-type="text" required>{{adverse_events}}</textarea>
               <p class='error surgery-adverse_events-errors'></p>
@@ -100,7 +115,7 @@
             <li>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <a href="{{rt}}/surgerys/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                  <a href="{{rt}}/Surgeries/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
                     Back
                   </a>
                 </div>

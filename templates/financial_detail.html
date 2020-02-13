@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{label}}</title>
+    {{>head}}
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        {{>home}}
+        <h1>{{label}}</h1>
+        {{#page_config.can_change}}
+        <a href="{{rt}}/Financialreports/{{id}}/edit" data-icon="edit" data-transition="flip">
+          Edit
+        </a>
+        {{/page_config.can_change}}
+      </div>
+      <div role="main" class="ui-content">
+          <h1>{{label}}</h1>
+          <table>
+            <tr>
+              <th>Surgery</th>
+              <td>{{surgery_label}}</td>
+            </tr>
+            <tr>
+              <th>Cost of materials (consumables and instruments)</th>
+              <td>{{materials_cost}}</td>
+            </tr>
+            <tr>
+              <th>Cost of medication</th>
+              <td>{{medication_cost}}</td>
+            </tr>
+            <tr>
+              <th>Cost of surgical team</th>
+              <td>{{surgical_team}}</td>
+            </tr>
+            <tr>
+              <th>Other personnel costs (nurses, etc.)</th>
+              <td>{{other_costs}}</td>
+            </tr>
+            <tr>
+              <th>Operating Room time cost</th>
+              <td>{{or_time_cost}}</td>
+            </tr>
+            <tr>
+              <th>ICU cost</th>
+              <td>{{icu_cost}}</td>
+            </tr>
+            <tr>
+              <th>Robotic system cost</th>
+              <td>{{robotic_cost}}</td>
+            </tr>
+            <tr>
+              <th>Robot maintenance fee</th>
+              <td>{{robot_maint_cost}}</td>
+            </tr>
+            <tr>
+              <th>Sterilization Cost</th>
+              <td>{{sterilization_cost}}</td>
+            </tr>
+          </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -11,31 +11,32 @@ isn't always needed and it makes debugging more tricky.
 See https://github.com/wq/wq.app/issues/63
 -->
 <html><!-- manifest="optrix.appcache" -->
-  <head>
+<head>
     <title>Optrix Data Assistant</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
     {{>head}}
-  </head>
-  <body>
-    <div data-role="page" class="ui-page">
-      <div data-role="header">
-          <img src="../media/logo_wide.jpg" width="100px">
-        <h1>Optrix Data Assistant</h1>
-      </div>
-      <div role="main" class="ui-content">
-        <p>This is Optrix's Data Collection Tool.</p>
-        <ul data-role="listview">
-          <!-- Note: in many cases, you will want to replace this with a
-          hardcoded list of links (rather than the default pages list) -->
-          {{#pages}}
-          <li><a href="{{rt}}/{{url}}{{#list}}/{{/list}}">{{name}} {{#list}}list{{/list}}</a></li>
-          {{/pages}}
-        </ul>
-      </div>
-      <p class="footer">
-        Optrix v{{version}}
-      </p>
+</head>
+<body>
+<div data-role="page" class="ui-page">
+    <div data-role="header">
+
+        <h2>Data Collection Assistant</h2>
     </div>
-  </body>
+    <div role="main" class="ui-content">
+        <img src="../media/logo_wide.jpg" class="ui-title" width="100%" align="left">
+        <p></p>
+        <ul data-role="listview">
+            <!-- Note: in many cases, you will want to replace this with a
+            hardcoded list of links (rather than the default pages list) -->
+            {{#pages}}
+            <li><a href="{{ rt }}/{{ url }}{{#list}}/{{/list}}">{{ name }} {{#list}}list{{/list}}</a></li>
+            {{/pages}}
+        </ul>
+    </div>
+    <p class="footer">
+        Optrix v{{ version }}
+    </p>
+</div>
+</body>
 </html>

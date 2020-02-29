@@ -1,0 +1,5 @@
+FROM crbrka/postgresql-10-postgis
+
+ADD postgres_setup/* /docker-entrypoint-initdb.d/
+#ADD dev_dumps /dumps
+ADD sql /docker-entrypoint-sql

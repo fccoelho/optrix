@@ -10,7 +10,7 @@ DEBUG = False
 # wq: Determine if we are running off django's testing server
 DEBUG_WITH_RUNSERVER = False
 
-ALLOWED_HOSTS = ["testproject.example.org"]
+ALLOWED_HOSTS = ["optrix.com"]
 
 
 # Database
@@ -21,10 +21,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgres',
         # To enable GeoDjango:
         # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'testproject',
-        'USER': 'testproject',
+        'NAME': 'optrix',
+        'USER': 'optrix',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': 'database',
         'PORT': '',
     }
 }

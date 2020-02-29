@@ -3,7 +3,7 @@ import django
 
 
 class Patient(models.Model):
-    date = models.DateField(verbose_name='Date of admission', default=django.utils.timezone.now())
+    date = models.DateField(verbose_name='Date of admission')
     number = models.IntegerField(verbose_name='Patient number')
     crypto_key = models.CharField(verbose_name="Patient key", max_length=100, null=False)
     sex = models.CharField(max_length=1, choices=[('M', 'Male'), ('F', 'Female')])
@@ -18,7 +18,7 @@ class Patient(models.Model):
 
 class Surgery(models.Model):
     surgery_type = models.CharField(max_length=256)
-    date = models.DateField(verbose_name='Date of Surgery', default=django.utils.timezone.now())
+    date = models.DateField(verbose_name='Date of Surgery')
     patient = models.ForeignKey('Patient', on_delete=models.deletion.DO_NOTHING)
     patient_in = models.TimeField(verbose_name='patient entered the operating room')
     patient_out = models.TimeField(verbose_name='Patient left the operating room')

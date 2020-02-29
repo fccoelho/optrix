@@ -12,6 +12,8 @@ services:
     build:
       context: "."
       dockerfile: "Dockerfile-postgres"
+    environment:
+      POSTGRES_PASSWORD: optrix
     hostname: "database"
     volumes:
       - /var/lib/postgresql/data

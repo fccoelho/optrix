@@ -6,6 +6,8 @@ volumes:
 services:
   web:
     build: .
+    env_file:
+      - .env
     volumes:
       - static_volume:/srv/deploy/optrix/htdocs
       - media_volume:/srv/deploy/optrix/media

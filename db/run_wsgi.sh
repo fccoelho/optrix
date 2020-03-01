@@ -15,7 +15,7 @@ cd $DEPLOY_HOME/db
 
 echo "Collecting Static files..."
 chown -R deploy:deploy /srv/deploy/optrix
-ls -la /srv/deploy/optrix/htdocs
+#ls -la /srv/deploy/optrix/htdocs
 python3 manage.py collectstatic --noinput
 chown -R deploy:deploy /srv/deploy/optrix/htdocs/static
 

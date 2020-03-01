@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'django.contrib.gis',
     'rest_framework',
+    'debug_toolbar',
 
     'wq.db.rest',
     'wq.db.rest.auth',
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'optrix.urls'
@@ -118,3 +120,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'htdocs', 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 VERSION_TXT = os.path.join(BASE_DIR, 'version.txt')
 MEDIA_URL = '/media/'
+
+SECURE_CONTENT_TYPE_NOSNIFF = False

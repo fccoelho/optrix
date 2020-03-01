@@ -5,12 +5,12 @@ from .base import *
 SECRET_KEY = '+=%r&tifrvtste5)88zzq#4#qsq5u$xu=ptuu)1xh)huy$$d&#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # wq: Determine if we are running off django's testing server
 DEBUG_WITH_RUNSERVER = False
 
-ALLOWED_HOSTS = ["optrix.com"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Database
@@ -18,13 +18,13 @@ ALLOWED_HOSTS = ["optrix.com"]
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
         # To enable GeoDjango:
         # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'optrix',
-        'USER': 'optrix',
-        'PASSWORD': '',
-        'HOST': 'database',
-        'PORT': '',
+        'USER': 'optrixadmin',
+        'PASSWORD': 'adminpass ',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }

@@ -2,15 +2,18 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ 'America/Sao_Paulo'
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN echo $TZ > /etc/timezone
 RUN apt-get update && \
     apt-get install -q -y locales \
       python3 \
       python3-pip \
       python3-setuptools \
-      apache2 \
-      libapache2-mod-wsgi-py3 \
-#      postgresql-10 \
+      gunicorn3 \
       python3-venv \
       nodejs
 
@@ -30,12 +33,20 @@ ENV PROJECTNAME=optrix
 RUN mkdir $PROJECTSDIR
 RUN cd $PROJECTSDIR
 RUN mkdir $PROJECTNAME
+RUN mkdir -p $PROJECTSDIR/$PROJECTNAME/logs
 RUN chown `whoami` $PROJECTNAME
 RUN cd $PROJECTNAME
 WORKDIR /srv/deploy/optrix
+
+#create deploy user
+RUN useradd -m deploy
+
 ADD . /srv/deploy/$PROJECTNAME
+RUN chown -R deploy:deploy $PROJECTSDIR/$PROJECTNAME
+ENV VIRTUAL_ENV=$PROJECTSDIR/$PROJECTNAME/venv
 RUN rm -rf venv
 RUN python3 -m venv venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 RUN . venv/bin/activate
 RUN python3 -m pip install --upgrade pip # optional
 
@@ -44,18 +55,11 @@ RUN python3 -m pip install wq
 
 
 RUN pip install -r requirements.txt
-# Start Django
+#RUN gunicorn -v
+
 RUN cd db && ./manage.py makemigrations
 RUN cd db && ./manage.py migrate
-# Apache setup
-RUN ln -s $PROJECTSDIR/$PROJECTNAME/conf/$PROJECTNAME.conf /etc/apache2/sites-available/
-RUN a2ensite $PROJECTNAME
-RUN a2enmod expires
-RUN service apache2 restart
 
-#RUN rm app/js/lib
-#RUN rm app/css/lib
-#RUN ./deploy.sh 0.0.1
+EXPOSE 8000
 
-EXPOSE 80 3500
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+USER deploy

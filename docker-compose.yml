@@ -1,20 +1,41 @@
-version: "2"
+version: "3.3"
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
 services:
   web:
     build: .
+    volumes:
+      - static_volume:/srv/deploy/optrix/htdocs
+      - media_volume:/srv/deploy/optrix/media
     ports:
     - 8000:8000
     depends_on:
       - db
+    user: root
+    command: /srv/deploy/optrix/db/run_wsgi.sh
     restart: always
 
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/srv/deploy/optrix/htdocs
+      - media_volume:/srv/deploy/optrix/media
+    ports:
+      - 80:80
+    depends_on:
+      - web
   db:
     build:
       context: "."
       dockerfile: "Dockerfile-postgres"
     environment:
-      POSTGRES_PASSWORD: optrix
-    hostname: "database"
+      - POSTGRES_USER=optrixadmin
+      - POSTGRES_PASSWORD=adminpass
+      - POSTGRES_DB=optrix
+    ports:
+      - 5432:5432
     volumes:
-      - /var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     restart: always

@@ -1,6 +1,5 @@
 version: "3.3"
 volumes:
-  postgres_data:
   static_volume:
   media_volume:
 services:
@@ -32,12 +31,8 @@ services:
     build:
       context: "."
       dockerfile: "Dockerfile-postgres"
-    environment:
-      - POSTGRES_USER=optrixadmin
-      - POSTGRES_PASSWORD=adminpass
-      - POSTGRES_DB=optrix
+    env_file:
+      - .env_db
     ports:
       - 5432:5432
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     restart: always

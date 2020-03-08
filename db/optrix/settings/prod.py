@@ -23,7 +23,7 @@ DATABASES = {
         # 'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'optrix',
         'USER': 'optrixadmin',
-        'PASSWORD': 'adminpass ',
+        'PASSWORD': 'adminpass',
         'HOST': 'db',
         'PORT': '5432',
     }

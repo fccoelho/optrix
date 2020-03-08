@@ -40,4 +40,3 @@ wq.start==1.2.0
 xlrd==1.2.0
 xlsconv==1.1.0
 gunicorn==20.0.4
-django-debug-toolbar

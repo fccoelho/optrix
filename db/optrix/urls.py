@@ -26,13 +26,6 @@ urlpatterns = [
     path('', include(rest.router.urls)),
 ]
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-
-    ] + urlpatterns
-
 if settings.DEBUG_WITH_RUNSERVER:
 
     # To use django-media-thumbnailer

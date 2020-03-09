@@ -24,6 +24,8 @@ class Surgeon(models.Model):
     first_name = models.CharField(max_length=64)
     last_name = models.CharField(max_length=64)
     CRM = models.IntegerField()
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.CRM}"
 
 
 class Surgery(models.Model):

@@ -28,6 +28,7 @@ echo "Collecting Static files..."
 chown -R deploy:deploy /srv/deploy/optrix
 #ls -la /srv/deploy/optrix/htdocs
 python3 manage.py collectstatic --noinput
+python3 manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL
 chown -R deploy:deploy /srv/deploy/optrix/htdocs/static
 
 

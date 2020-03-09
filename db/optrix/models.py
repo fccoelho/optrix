@@ -15,11 +15,23 @@ class Patient(models.Model):
     def __str__(self):
         return f"Patient {self.number}, admitted on: {self.date}"
 
+class Hospital(models.Model):
+    name = models.CharField(max_length=256)
+    def __str__(self):
+        return self.name
+
+class Surgeon(models.Model):
+    first_name = models.CharField(max_length=64)
+    last_name = models.CharField(max_length=64)
+    CRM = models.IntegerField()
+
 
 class Surgery(models.Model):
     surgery_type = models.CharField(max_length=256)
     date = models.DateField(verbose_name='Date of Surgery')
     patient = models.ForeignKey('Patient', on_delete=models.deletion.DO_NOTHING)
+    hospital = models.ForeignKey('Hospital', on_delete=models.deletion.DO_NOTHING, null=True)
+    surgeon = models.ForeignKey('Surgeon', on_delete=models.deletion.DO_NOTHING, null=True)
     patient_in = models.TimeField(verbose_name='patient entered the operating room')
     patient_out = models.TimeField(verbose_name='Patient left the operating room')
     anesthetic_induction = models.CharField(max_length=512)

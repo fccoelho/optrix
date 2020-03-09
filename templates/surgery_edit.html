@@ -58,6 +58,30 @@
               <p class='error surgery-patient_id-errors'></p>
             </li>
             <li class="ui-field-contain">
+              <label for='surgery-hospital_id'>Hospital</label>
+              <select id='surgery-hospital_id' data-xform-type='string' name='hospital_id'>
+                <option value="">Select one...</option>
+                {{#hospital_list}}
+                <option value="{{id}}"{{#selected}} selected{{/selected}}>
+                 {{#outbox}}*{{/outbox}} {{label}}
+                </option>
+                {{/hospital_list}}
+              </select>
+              <p class='error surgery-hospital_id-errors'></p>
+            </li>
+            <li class="ui-field-contain">
+              <label for='surgery-surgeon_id'>Surgeon</label>
+              <select id='surgery-surgeon_id' data-xform-type='string' name='surgeon_id'>
+                <option value="">Select one...</option>
+                {{#surgeon_list}}
+                <option value="{{id}}"{{#selected}} selected{{/selected}}>
+                 {{#outbox}}*{{/outbox}} {{label}}
+                </option>
+                {{/surgeon_list}}
+              </select>
+              <p class='error surgery-surgeon_id-errors'></p>
+            </li>
+            <li class="ui-field-contain">
               <label for='surgery-patient_in'>Patient entered the operating room</label>
               <input id='surgery-patient_in' type='time' data-xform-type='time' name='patient_in' required value="{{patient_in}}">
               <p class='error surgery-patient_in-errors'></p>

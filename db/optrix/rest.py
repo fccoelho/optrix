@@ -1,5 +1,5 @@
 from wq.db import rest
-from .models import Patient, Surgery, Postoperative, Financial
+from .models import Patient, Surgery, Postoperative, Financial, Hospital, Surgeon
 
 rest.router.register_model(
     Patient,
@@ -18,6 +18,16 @@ rest.router.register_model(
 )
 rest.router.register_model(
     Financial,
+    fields="__all__",
+    can_delete=True
+)
+rest.router.register_model(
+    Hospital,
+    fields="__all__",
+    can_delete=True
+)
+rest.router.register_model(
+    Surgeon,
     fields="__all__",
     can_delete=True
 )

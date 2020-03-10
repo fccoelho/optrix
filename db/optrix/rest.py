@@ -1,6 +1,8 @@
 from wq.db import rest
 from .models import Patient, Surgery, Postoperative, Financial, Hospital, Surgeon
 
+# rest.router.add_page('index', {'url': ''})
+
 rest.router.register_model(
     Patient,
     fields="__all__",

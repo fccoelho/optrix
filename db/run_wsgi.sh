@@ -25,11 +25,14 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 echo "Collecting Static files..."
-chown -R deploy:deploy /srv/deploy/optrix
+chown -R deploy:deploy $DEPLOY_HOME
 #ls -la /srv/deploy/optrix/htdocs
 python3 manage.py collectstatic --noinput
 python3 manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL
-chown -R deploy:deploy /srv/deploy/optrix/htdocs/static
+#cd $DEPLOY_HOME
+#./deploy.sh 0.0.2
+#cd  $DEPLOY_HOME/db
+chown -R deploy:deploy $DEPLOY_HOME/htdocs/static
 
 
 exec gunicorn -w $NUM_WORKERS -b $WSGI_HOST:$WSGI_PORT --access-logfile $ACCESS_LOG --error-logfile $ERRLOG optrix.wsgi:application --preload --timeout 480

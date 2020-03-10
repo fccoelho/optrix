@@ -15,10 +15,18 @@ class Patient(models.Model):
     def __str__(self):
         return f"Patient {self.number}, admitted on: {self.date}"
 
+    class Meta:
+        ordering = ['number']
+        verbose_name_plural = "Patients"
+
 class Hospital(models.Model):
     name = models.CharField(max_length=256)
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['name']
+        verbose_name_plural = "Hospitals"
 
 class Surgeon(models.Model):
     first_name = models.CharField(max_length=64)
@@ -26,6 +34,10 @@ class Surgeon(models.Model):
     CRM = models.IntegerField()
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.CRM}"
+
+    class Meta:
+        ordering = ['last_name']
+        verbose_name_plural = "Surgeons"
 
 
 class Surgery(models.Model):

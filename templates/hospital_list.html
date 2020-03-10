@@ -10,7 +10,7 @@
         {{>home}}
         <h1>hospital List{{#parent_id}} for {{parent_label}}{{/parent_id}}</h1>
         {{#page_config.can_add}}
-        <a href="{{rt}}/hospitals/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}" data-icon="plus">
+        <a href="{{rt}}/Hospitals/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}" data-icon="plus">
           Add New
         </a>
         {{/page_config.can_add}}
@@ -64,12 +64,12 @@
             {{/unsynced}}
             {{#list}}
             <li>
-              <a href="{{rt}}/hospitals/{{id}}">{{label}}</a>
+              <a href="{{rt}}/Hospitals/{{id}}">{{label}}</a>
             </li>
             {{/list}}
             {{#page_config.can_add}}
             <li data-icon="plus" data-theme="b">
-              <a href="{{rt}}/hospitals/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}">Add hospital</a>
+              <a href="{{rt}}/Hospitals/new{{#parent_id}}?{{parent_page}}_id={{parent_id}}{{/parent_id}}">Add hospital</a>
             </li>
             {{/page_config.can_add}}
           </ul>

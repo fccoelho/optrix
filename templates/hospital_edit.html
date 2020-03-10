@@ -11,7 +11,7 @@
         <h1>{{^id}}Add{{/id}}{{#id}}Edit{{/id}} hospital</h1>
         {{#id}}
         {{#page_config.can_delete}}
-        <form action="{{svc}}/hospitals/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/Hospitals/{{id}}" method="post" data-ajax="false"
           data-wq-json="true" data-wq-background-sync="false"
           onsubmit="return require('wq/app').confirmSubmit(this, 'Are you sure you want to delete this record?');">
           {{>csrf}}
@@ -24,7 +24,7 @@
         {{/id}}
       </div>
       <div role="main" class="ui-content">
-        <form action="{{svc}}/hospitals/{{id}}" method="post" data-ajax="false"
+        <form action="{{svc}}/Hospitals/{{id}}" method="post" data-ajax="false"
             data-wq-json="true"
             {{#outbox_id}}
               data-wq-outbox-id="{{outbox_id}}"
@@ -43,7 +43,7 @@
             <li>
               <div class="ui-grid-a">
                 <div class="ui-block-a">
-                  <a href="{{rt}}/hospitals/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
+                  <a href="{{rt}}/Hospitals/{{id}}" data-role="button" data-icon="back" data-direction="reverse">
                     Back
                   </a>
                 </div>

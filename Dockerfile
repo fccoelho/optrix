@@ -56,12 +56,7 @@ RUN python3 -m pip install wq
 
 
 RUN pip install -r requirements.txt
-#RUN gunicorn -v
 
-#RUN ./manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@optrix.com', 'adminpass')"
-#RUN cd db && ./manage.py createsuperuser --noinput --username optrixadmin
-#RUN cd db && ./manage.py makemigrations
-#RUN cd db && ./manage.py migrate
 
 EXPOSE 8000
 
